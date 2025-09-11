@@ -110,4 +110,4 @@ funcs = [
 with open("results.txt", 'w') as f:
     for func in funcs:
         mean_time = measure_time(func)
-        f.write(f"{mean_time:.2f}\n")
+        f.write(f"{func.__name__}: {mean_time:.2f}\n")
