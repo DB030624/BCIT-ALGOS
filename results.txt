@@ -1,0 +1,16 @@
+add_to_begin_small: 0.32
+add_to_begin_large: 21244.77
+add_to_end_small: 0.30
+add_to_end_large: 21631.61
+remove_from_beg_small: 0.33
+remove_from_beg_large: 23890.45
+remove_from_end_small: 0.31
+remove_from_end_large: 19364.55
+check_num_small: 0.29
+check_num_large: 20617.75
+check_num_not_in_small: 0.37
+check_num_not_in_large: 36293.32
+check_key_in_dict_small: 0.54
+check_key_in_dict_large: 79402.41
+check_key_not_in_dict_small: 0.54
+check_key_not_in_dict_large: 79885.33
