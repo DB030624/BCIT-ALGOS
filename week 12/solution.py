@@ -35,8 +35,10 @@ def quicksort_naive(seq):
 
 
 def pivot_upgrade(seq, lo, hi):
-    pivot = (lo + hi) // 2
-    return seq[pivot]
+    
+    mid = (lo + hi) // 2
+    return seq[mid]
+
 
 
 def quicksort_upgrade(seq):
@@ -46,14 +48,18 @@ def quicksort_upgrade(seq):
 
 def __quicksort_upgrade(seq, lo, hi):
     if hi - lo <= 1:
-        return 
+        return seq
     
     pivot = pivot_upgrade(seq,lo,hi)
 
-    len_lo, len_eq, len_hi = partition_upgrade(seq,pivot,lo, hi)
+    len_lo,len_mid,len_hi = partition_upgrade(seq,pivot,lo,hi)
 
-    __quicksort_upgrade(seq,lo, lo + len_lo)
-    __quicksort_upgrade(seq, lo + len_lo + len_eq, hi)
+    __quicksort_upgrade(seq,lo,lo + len_lo)
+    __quicksort_upgrade(seq, lo + len_lo + len_mid, hi)
+
+
+
+
 
 '''def partition_upgrade(seq, pivot, lo, hi):
     [one, two, three] = partition_naive(seq[lo:hi], pivot)
@@ -66,8 +72,8 @@ def partition_upgrade(seq, pivot, lo, hi):
 
     for i in range(lo,hi):
         if seq[i] < pivot:
-            seq[i] , seq[writer] = seq[writer], seq[i]
-
+            seq[i], seq[writer] = seq[writer], seq[i]
+            
             writer += 1
     
     len_lo = writer - lo
@@ -75,13 +81,19 @@ def partition_upgrade(seq, pivot, lo, hi):
     starter_eq = writer
     for i in range(writer,hi):
         if seq[i] == pivot:
-            seq[i] , seq[writer] = seq[writer],seq[i]
+            seq[i] , seq[writer] = seq[writer], seq[i]
             writer += 1
     
     len_eq = writer - starter_eq
     len_hi = hi - writer
 
-    return [len_lo,len_eq,len_hi]
+    return [len_lo, len_eq, len_hi]
+
+
+
+
+
+ #   pass
         
 
 
