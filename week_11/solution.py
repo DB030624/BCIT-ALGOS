@@ -6,40 +6,38 @@ def cheat_merge(left, right):
 
 
 def merge(left,right):
-
-    sort = []
-    l, r = 0,0
-
+    l = r = 0 
+    res = []
     while l < len(left) and r < len(right):
-        if left[l] < right[r]:
-            sort.append(left[l])
+        if left[l] <= right[r]:
+            res.append(left[l])
             l += 1
         else:
-            sort.append(right[r])
+            res.append(right[r])
             r += 1
-        
-    sort.extend(left[l:])
-    sort.extend(right[r:])
-
-    return sort
-
-
-
-
-
-def merge_sort(seq):
-    if len(seq) <= 1:
-        return seq
     
-    left = merge_sort(seq[:len(seq)//2])
-    right = merge_sort(seq[len(seq)//2:])
+    res.extend(left[l:])
+    res.extend(right[r:])
 
-    seq[:] = merge(left,right)
-    return seq
+    return res
 
+def merge_sort(unsorted_list):
 
+    def _recursive_sort(splice_unsorted_list):
 
+        if (len(splice_unsorted_list) <= 1):
+            return splice_unsorted_list
+        
+        mid = len(splice_unsorted_list) // 2
+        list_one = _recursive_sort(splice_unsorted_list[:mid])
+        list_two = _recursive_sort(splice_unsorted_list[mid:])
 
+        return merge(list_one,list_two)
+    
+    sorted_res = _recursive_sort(unsorted_list)
+
+    unsorted_list[:] = sorted_res
+    
     
 
     
